@@ -1,0 +1,546 @@
+
+
+
+/* #wrapper {
+  background-color: #0091ff;
+    clip-path: polygon(29% 0, 100% 0, 100% 70%, 70% 100%, 0 100%, 0 28%);
+} */
+
+ body {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+ }
+
+
+
+/* input[type=submit] {
+  width: 100%;
+  background-color: rgb(55 129 230);
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+select {
+  border-radius: 6px;
+  padding: 0.2em;
+  background-color: rgb(133 173 239);
+
+}
+
+input[type=submit]:hover {
+  background-color: rgb(0 108 255);
+} */
+
+.form-style {
+  max-width: 60em;
+  width: 90%;
+  min-width: 34em;
+}
+.form-style-tickets {
+  max-width: 80em;
+  width: 90%;
+  /* min-width: 25em; */
+}
+
+.form-style-view-ticket {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  /* z-index: 2; */
+  border-left: groove;
+  border-right: groove;
+  border-bottom: groove;
+  min-width: 42em;
+  display:flex;
+}
+
+
+
+.view-main {
+  width: -webkit-fill-available;
+  overflow: hidden;
+}
+
+.view-sidebar {
+  min-width: 8em;
+}
+.inside-main-view {
+  /* display: flex;
+  justify-content: center;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  z-index: 2;
+  margin-left: 5em;
+  margin-right: 5em;
+  border: groove;
+  height: fit-content;
+  width: fit-content;
+  max-width: 45em; */
+  display: flex;
+  /* justify-content: center; */
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  /* z-index: 2; */
+  /* margin-left: 5em; */
+  /* margin-right: 5em; */
+  border: groove;
+  /* height: fit-content; */
+  /* position: absolute; */
+  /* width: fit-content; */
+  /* max-width: 45em; */
+  width: 80%;
+}
+
+
+
+.inline {
+  display: inline;
+}
+
+.link-button {
+  background: none;
+  border: none;
+  /* color: blue; */
+  /* text-decoration: underline; */
+  cursor: pointer;
+  font-size: 1em;
+  font-family: serif;
+  /* position: absolute; */
+  text-align: left;
+  margin-right: 2px;
+  /* padding-bottom: 0; */
+  padding: 0;
+  margin-left: 1px;
+  outline: none;
+}
+
+
+
+
+
+
+
+
+
+
+.header-description {
+    font-size: 11px;
+}
+
+
+#managementForm {
+  height: fit-content;
+}
+
+.userSettings {
+  padding: 1em;
+}
+.profile-settings {
+    margin-bottom: 2em;
+    /* border-style: groove; */
+  }
+
+.settings-list {
+    margin-left: 2em;
+}
+
+.form-style h2 {
+  text-align: center !important;
+}
+
+/* 
+#role-option {
+  display: grid;
+} */
+#role-option label {
+  display: inline-block;
+  width: 130px;
+  text-align: left;
+  font-size: 14px;
+}
+
+.ticket-description {
+  width: 20em;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  position: relative;
+}
+
+.select-input {
+  padding: 4px 10px;
+  /* margin-left: 1em; */
+  border-radius: 4px;
+  border: solid 2px #ccc;
+  width: 50%;
+  font-size: 12px;
+
+}
+.select-input-ticket {
+  padding: 4px 10px;
+  border-radius: 4px;
+  border: solid 2px #ccc;
+  width: 20em;
+}
+.select-input-manage {
+  padding: 4px 10px;
+  /* margin-left: 1em; */
+  border-radius: 4px;
+  border: solid 2px #ccc;
+  width: 50%;
+  font-size: 12px;
+}
+
+.submit-btn {
+  width: 35%;
+  background-color: #2e79ab;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+  /* margin-top: 3em; */
+}
+
+.submit-btn:hover, .submit-btn-faq:hover {
+  background-color: rgb(18, 94, 144);
+}
+
+#search-bar {
+  width: 80%;
+  display: flex;
+  margin: auto;
+  margin-top: 5px;
+  width: 60%;
+  padding: 8px 10px;
+  border-radius: 4px;
+  border: solid 2px #ccc;
+  border-color: lightgrey;
+  box-shadow: 0 4px 5px -6px black;
+}
+
+.input-type {  
+  padding: 4px 10px;
+  /* margin-left: 1em; */
+  border-radius: 4px;
+  border: solid 2px #ccc;
+  width: 50%;
+}
+.input-label {  
+  display: inline-block;
+  width: 130px;
+  text-align: left;
+  font-size: 12px;
+  float:left;
+}
+#faq-textarea {
+  height: 10em;
+}
+.inside-main {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+
+.image-container img {
+  width: 100%;
+}
+
+.notif-img {
+  margin-top: 6px;
+  width: 3.5em;
+  height: 3.5em;
+  border-radius: 50%;
+  /* float: left; */
+  z-index: 10;
+  position: absolute;
+  margin-left: 5px;
+}
+
+.notif-span {
+  margin-left: 3.5em;
+  display: block;
+  color: white;
+  padding: 10;
+  padding: 10px;
+}
+
+.dash-icon {
+  float:right;
+  color: grey;
+}
+.dash-number {
+  text-align: left;
+  font-weight: bold;
+  font-size: 40px;
+  color: #728def;
+  margin-top: 0;
+}
+.dash-subject {
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+  color: #2a70d8;
+  margin-top: 5.5em;
+}
+
+*{
+  box-sizing: border-box;
+}
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 33%;
+  padding: 0 10px;
+}
+
+/* Remove extra left and right margins, due to padding in columns */
+.row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+  padding: 10px;
+  text-align: center;
+  background-color: #f1f1f1;
+  margin-bottom: 2em;
+  height: 9em;
+ overflow:hidden;
+}
+
+/* Responsive columns - one column layout (vertical) on small screens */
+@media screen and (max-width: 600px) {
+
+}
+
+.image-container input {
+  /* display: block;
+  margin-top: 1em;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto; */
+  margin-top: 2em;
+}
+
+.image-container {
+  float: left;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  overflow-y: scroll;
+  border: groove;
+  padding: 0.5em;
+  width: 37%;
+  height: 76%;
+}
+
+.image-container::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  
+  /* Track */
+  .image-container::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  .image-container::-webkit-scrollbar-thumb {
+    background-color: lightgrey;
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  .image-container::-webkit-scrollbar-thumb:hover {
+    background: rgb(146, 137, 137);
+  }
+
+  
+.image-container::-webkit-scrollbar-track {
+    background: transparent;
+    margin-bottom:10px;
+}
+
+.image-container p {
+    font-size: 12px;
+    text-align: left;
+    margin-top: 2em;
+}
+
+.form-content {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  width: 60%;
+  z-index: 2;
+  float: left;
+  border: groove;
+  margin-left: 1em;
+  /*height: 76%;*/
+}
+
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltip-view, .tooltip-delete {
+  visibility: hidden;
+  width: 120px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip .tooltip-view::after, .tooltip-delete::after  {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+
+.auth-input {
+    width: 80%;
+    padding: 12px 20px;
+    margin-left: auto;
+    display: flex;
+    margin-right: auto;
+    /* margin: 8px 0; */
+    margin-top: 14px;
+    /* display: inline-block; */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+        border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+    font-size: 12px;
+}
+
+.auth-div {
+    border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  width:50%;
+  height: fit-content;
+  border: groove;
+      max-width: 30em;
+}
+
+
+
+
+.tooltip:hover .tooltip-view, .tooltip:hover .tooltip-delete  {
+  visibility: visible;
+  opacity: 1;
+}
+
+@media screen and (max-width: 1024px) {
+    #search-bar {
+      width: 95%;
+      margin-bottom: 6px;
+    }
+    .tablinks {
+      margin-bottom: 5px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .auth-div {
+          margin-left: 2em;
+    margin-right: 2em;
+    width: 100%;
+    max-width: auto;
+    }
+    .form-style{
+      min-width: auto;
+    }
+    .inside-main-view {
+      margin-left: 1em;
+      margin-right: 1em;
+      padding: 10px;
+    }
+    .ticket-info {
+      padding: 1em;
+    }
+    .centre a{
+      width: 70%; 
+      margin: auto;
+      margin-top: 2em;
+    }
+    .input-type, .select-input, .select-input-manage {
+      width: 80%;
+    }
+    .select-input {
+      display:block;
+    }
+    .image-container {
+      border-radius: 5px;
+      background-color: #f2f2f2;
+      padding: 20px;
+      width: 90%;
+      z-index: 2;
+      float: none;
+      border: groove;
+      margin-left: auto;
+      margin-right: auto;
+      height: auto;
+      margin-bottom: 1em;
+    }
+    .form-content{
+      float: none;
+      margin-left: auto;
+      margin-right: auto;
+      width: 90%;
+      height:auto;
+    }
+    .column {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+    }
+    .card {
+      width: 50%;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 0;
+    }
+    .form-style-view-ticket{
+      margin-left: 1em;
+      margin-right: 1em;
+    }
+    #search-bar {width: 95%; margin-bottom: 6px;}
+    .tablinks {margin-bottom: 5px;}
+  }

@@ -1,0 +1,315 @@
+
+body {
+    /* background-color: #a4d2f5; */
+    margin: 0;
+}
+table { 
+  width: 100%; 
+  font-size: 10px;
+  border-collapse: collapse; 
+  table-layout: fixed;
+}
+/* Zebra striping */
+tr:nth-of-type(odd) { 
+  background: #eee; 
+}
+th { 
+  /* background: #333;  */
+  background: #2e79ab;
+  color: white; 
+  font-weight: bold; 
+}
+
+td, th { 
+  padding: 6px; 
+  border: 1px solid rgb(150, 147, 147); 
+  text-align: center; 
+}
+
+.ticketDashboard, .ticketDiv {
+  font-size: 12px;
+  padding:3em;
+}
+
+#priority_low {
+  text-transform: uppercase;
+  font-weight: bold;
+    background-color: rgb(83, 142, 231);
+}
+#priority_medium {
+  text-transform: uppercase;
+  font-weight: bold;
+    background-color: rgb(241, 214, 58);
+}
+#priority_high {
+    text-transform: uppercase;
+    font-weight: bold;
+    background-color: rgb(230, 56, 56);
+}
+
+.ticketDiv {
+  padding: 3em;
+}
+
+.subject-c {
+  width: 20%;
+  min-width: 11em;
+  white-space: nowrap;
+  overflow-x: auto;
+}
+
+.select-assign {
+  width: 100%;
+}
+.ticket-c {
+  width: 9%;
+}
+.ticket-number {
+  background-color: lightgrey;
+  border:none;
+  width: 100%;
+  text-align: center;
+}
+.status-c {
+  width: 14%;
+}
+.priority-c {
+  width: 13%;
+}
+#assigned-btn-c {
+  width: 25%;
+}
+.checkbox-c {
+    width: 15%;
+    min-width: 6em;
+}
+.date-c {
+    width:10%;
+    min-width: 7em;
+}
+.assigned-c {
+  width:15%;
+}
+.last-m-c {
+  width: 15%;
+
+}
+
+.ticket-warning {
+  color: #d83535;
+}
+.ticket-okay {
+  color: rgb(36, 182, 36);
+}
+.icon-c {
+  width: 10%;
+  min-width: 3em;
+}
+.tab {
+  overflow: hidden;
+  /* border: 1px solid #ccc; */
+  background-color: #2e79ab;
+  border: groove;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  color: white;
+}
+
+#reopen-ticket{
+  background-color: #2e79ab;
+  color: white;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 1em;
+  float: right;
+  /* margin-top: 3em; */
+}
+
+#reopen-ticket:hover {
+  background-color: rgb(18, 94, 144);
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: rgb(18 94 144) !important;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: rgb(18 94 144);
+}
+
+/* Style the tab content */
+.tabcontent {
+  /* display: none; */
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+  min-height: 45em;
+}
+
+#btnCreateTicket{
+    color: rgb(93, 209, 93); 
+    float: left;
+    cursor: pointer;
+    margin-left: 1em;
+    margin-bottom: 0.5em;
+}
+.btn-c {
+  width: 11%;
+}
+.btnView {
+  border-radius: 50%;
+  border-style: hidden;
+  background-color: transparent;
+  cursor: pointer;
+}
+.btnDelete {
+  border-radius: 50%;
+  border-style: hidden;
+  background-color: transparent;
+  cursor: pointer;
+}
+.legend-text {
+  color: black;
+}
+.legend-text span {
+  display: inline-block;
+  margin-right: 1em;
+}
+#exclamation { 
+  margin-left: 1.3em;
+}
+
+td {
+  background-color: #dacece;
+  color:black;
+}
+
+#activeTab{
+  background-color: rgb(18, 94, 144);
+}
+
+@media screen and (max-width: 1024px) {
+  .last-m-c, .status-c{
+      display: none;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .last-m-c, .status-c{
+      display: none;
+  }
+  .ticketDashboard {
+    min-width: 40em;
+  }
+}
+
+
+
+
+
+@media 
+only screen and (max-width: 768px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+  .date-c, .subject-c, .ticket-c, .status-c, .priority-c, .btn-c, #assigned-btn-c {
+    width: auto; 
+    display: block;
+  }
+  .subject-c {
+    white-space: normal;
+    overflow-x: unset;
+  }
+
+  .tab {
+      margin-right: 0.5em;
+      margin-left: 0.5em;
+  }
+
+	/* Force table to not be like tables anymore */
+	table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
+	
+	/* Hide table headers (but not display: none;, for accessibility) */
+	thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+  
+	tr { border: 1px solid #ccc; }
+	
+	td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 50%; 
+	}
+	
+  td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+	}
+
+
+	/*
+	Label the data
+	*/
+  .activeTable td:nth-of-type(1):before { content: ""; }
+	.activeTable td:nth-of-type(2):before { font-weight: bold; content: "Ticket ID"; }
+	.activeTable td:nth-of-type(3):before { font-weight: bold; content: "Assigned To"; }
+	.activeTable td:nth-of-type(4):before { font-weight: bold; content: "Subject"; }
+	.activeTable td:nth-of-type(5):before { font-weight: bold; content: "Date"; }
+	.activeTable td:nth-of-type(6):before { font-weight: bold; content: "Status"; }
+	.activeTable td:nth-of-type(7):before { font-weight: bold; content: "Priority"; }
+	.activeTable td:nth-of-type(8):before { font-weight: bold; content: "Last Message"; }
+	.activeTable td:nth-of-type(9):before { content: ""; }
+
+  .assignedTable td:nth-of-type(1):before { content: ""; }
+	.assignedTable td:nth-of-type(2):before { font-weight: bold; content: "Ticket ID"; }
+	.assignedTable td:nth-of-type(3):before { font-weight: bold; content: "Subject"; }
+	.assignedTable td:nth-of-type(4):before { font-weight: bold; content: "Date"; }
+	.assignedTable td:nth-of-type(5):before { font-weight: bold; content: "Status"; }
+	.assignedTable td:nth-of-type(6):before { font-weight: bold; content: "Priority"; }
+	.assignedTable td:nth-of-type(7):before { font-weight: bold; content: "Last Message"; }
+	.assignedTable td:nth-of-type(8):before { content: ""; }
+
+  .closedTable, td:nth-of-type(1):before { content: "Ticket ID"; } /* Doesnt work */
+	.closedTable td:nth-of-type(2):before { font-weight: bold; content: "Subject"; }
+	.closedTable td:nth-of-type(3):before { font-weight: bold; content: "Date"; }
+  .closedTable td:nth-of-type(4):before { font-weight: bold; content: "Status"; }
+	.closedTable td:nth-of-type(5):before { font-weight: bold; content: "Last Message"; }
+	.closedTable td:nth-of-type(6):before { font-weight: bold; content: ""; }
+
+  .getTickets td:nth-of-type(1):before { font-weight: bold; content: "Ticket ID"; }
+	.getTickets td:nth-of-type(2):before { font-weight: bold; content: "Subject"; }
+	.getTickets td:nth-of-type(3):before { font-weight: bold; content: "Date"; }
+  .getTickets td:nth-of-type(4):before { font-weight: bold; content: "Status"; }
+	.getTickets td:nth-of-type(5):before { font-weight: bold; content: "Last Message"; }
+	.getTickets td:nth-of-type(6):before { content: ""; }
+
+
+}

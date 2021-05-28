@@ -1,0 +1,8 @@
+
+.manageSettings p {
+    display: grid;
+}
+
+.manageSettings .input-label {
+    margin-bottom: 1em;
+}
