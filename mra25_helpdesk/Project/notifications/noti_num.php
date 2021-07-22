@@ -7,10 +7,10 @@
    
     $username = $_COOKIE['session_cookie'];
            
-    $servername = "localhost";
-    $susername = "mra25_newUser";
-    $password = "JkI=4zvo36xz";
-    $dbname = "mra25_helpDesk";
+    $servername = "XXXX";
+    $susername = "XXXX";
+    $password = "XXXX";
+    $dbname = "XXXX";
 
     // $servername = "localhost";
     // $susername = "root";

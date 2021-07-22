@@ -56,20 +56,18 @@ nav, .nav-menu-active a, .logo a{
 .notif-menu {
     opacity: 0;
     position: absolute;
-    /* left: 0px; */
-
     transform: translateX(-100%);
     transition: transform 0.5s ease-in;
 
 }
 .notif-menu-active {
-  width: 40%; /* 0 width - change this with JavaScript */
+  width: 40%; 
   height: 100vh;
   position: fixed; /* Stay in place */
   z-index: 2; /* Stay on top */
   left: 0;
   top: -16px;
-  background-color: rgb(41, 54, 226); /* Black*/
+  background-color: rgb(41, 54, 226); 
   overflow-x: hidden; /* Disable horizontal scroll */
     padding-bottom: 1em;
   transition: 0.5s; /* 0.5 second transition effect to slide in the */
@@ -87,17 +85,7 @@ nav, .nav-menu-active a, .logo a{
     cursor: pointer;
 }
 .nav-menu {
-    /* opacity: 0;
-    position: fixed; */
-    /* left: 0px; */
-    /* z-index: 1; Stay on top */
-   
-    /* display: block; */
-    /* overflow-x: hidden;
-    left: -999;
-    display: none; */
-    width: 20%; /* 0 width - change this with JavaScript */
-    /* height: 100%; */
+    width: 20%;
     position: absolute; /* Stay in place */
     z-index: 1; /* Stay on top */
     left: 0;
@@ -119,9 +107,8 @@ nav, .nav-menu-active a, .logo a{
 
 .nav-menu-active {
 display: none;
-  width: 20%; /* 0 width - change this with JavaScript */
-  /* height: 100%; */
-  position: absolute; /* Stay in place */
+  width: 20%;
+  position: absolute; 
   z-index: 1; /* Stay on top */
   left: 0;
   background-color:  rgb(56, 53, 53);
@@ -141,15 +128,12 @@ display: none;
 }
 
 .nav-menu, .nav-menu-active {
-    /* display: block; */
     padding: 1em;
     max-width: 12em;
     transition: 0.5s;
 }
 
 .nav-menu a, .nav-menu-active a{
-  
-    /* letter-spacing: 0.2em; */
     font-weight: bold;
     font-size: 14px;
     display: inline-block;
@@ -206,7 +190,6 @@ nav .nav-links a:hover {
     background-color: #f2f2f2;
     color: black;
     position: absolute;
-    /* color: rgb(34, 33, 33); */
 }
 .popup-notif-form h2 {
     margin-top: -1em;
@@ -285,14 +268,7 @@ li a:hover, .dropdown:hover .dropbtn {
     border-radius: 5px;
 }
 
-/* .dropdown-content-name:hover {background-color: #f1f1f1;} */
-
-
-
-/* here */
-
 .dropdown-content-notif {
-    /* display: none; */
     position: absolute;
     background-color: #f9f9f9;
     min-width: 160px;
@@ -371,12 +347,8 @@ li a:hover, .dropdown:hover .dropbtn {
     z-index: 10;
     width: 20em;
     margin-right: 2em;
-    /* display: flex; */
-    /* margin-left: auto; */
-    /* margin-right: auto; */
     top: auto;
     right: 0;
-    /* border: groove; */
     border-top: none;
     margin-top: 387px;
     background-color: rgb(56, 53, 53);
@@ -425,31 +397,5 @@ li a:hover, .dropdown:hover .dropbtn {
     #site-name-mobile{
         display: block;
     }
-    /* .nav-menu, .sideNav, .nav-menu-active {
-        display: none;
-    }
-    #wrapper {
-        margin-left: -18em;
-    } */
 
-/*    
-    .nav-links:last-of-type, .nav-links-extra:last-of-type{
-        border-bottom: solid 0px;
-    }
-
-    .nav-links:hover, .nav-links-extra:hover {
-        background-color: #bebfec;
-        border-radius: 0;
-    }
-
-    nav .logo {
-        margin-right: auto;
-        margin-left: auto;
-    } */
 }
-/*
-    display: grid;
-    justify-content: center;
-    TO PUT THE TEXT IN MIDDLE WHEN RESPONSIVE NAV
-
-*/

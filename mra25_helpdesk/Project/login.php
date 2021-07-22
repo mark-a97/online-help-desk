@@ -5,12 +5,7 @@
     $currentPage = "Login";
     $message = "";
    
-    // include('includes/dbConnect.php');
     include('includes/navbar.php');
-    // include('includes/user.php');
-    
-    // $database = new Database("localhost", "root", "", "helpdesk");
-    // $db = new Database();
 
     if(isset($_POST['btnLogin'])) {
 

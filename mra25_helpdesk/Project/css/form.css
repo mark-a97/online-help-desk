@@ -63,19 +63,14 @@
     background-color: #f2f2f2;
     padding: 20px;
     max-width: 80%;
-    /* height: 80vh; */
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    /* margin-top: 5vh; */
   }
   .form-my-tickets{
-    /* border-radius: 5px; */
     background-color: #f2f2f2;
     padding: 0 20px 20px 20px;
     max-width: 90%;
-    /* margin-left: auto;
-    margin-right: auto; */
     text-align: center;
     min-height: 45em;
   }
@@ -141,7 +136,6 @@
 #triangle-warning {
     color: white;
     padding: 14px;
-    /* align-items: center; */
     text-align: center;
 }
 
@@ -163,9 +157,7 @@
     border-radius: 5px;
     background-color: #f2f2f2;
     padding: 20px;
-    /* width: 60%; */
     z-index: 2;
-    /* float: left; */
     border: groove;
     border-bottom-left-radius: 0;
     border-left: none;
@@ -223,15 +215,11 @@
     border-bottom-right-radius: 0;
     margin-left: 1em;
     margin-right: -1.1em;
-    /* margin-top: -1em; */
     height: 54%;
     max-width: 10em;
   }
   #ticketID{
     background-color: #2e79ab;
-    /* border-radius: 5px; */
-    /* border-top-left-radius: 0; */
-    /* border-top-right-radius: 0; */
     margin: -22px -21px -7px -19px;
     line-height: 3em;
     text-align: center;
@@ -248,7 +236,6 @@
 
   #create-ticket-popup {
     position: absolute;
-    /* bottom: 50%; */
     opacity: 0; 
     left: -999em;
     height:fit-content;
@@ -259,11 +246,9 @@
 
   #remove-faq-popup {
     position: absolute;
-    /* bottom: 50%; */
     opacity: 0;
     left: -999em;
     transition: 0.2s ease;
-    /* width: 50%; */
   }
 
   #popup-form-faq{
@@ -276,7 +261,6 @@
   }
 
   .popup-add-question{
-    /* display: none; */
     text-align: center;
     top: 16em;
     padding: 2em;
@@ -284,7 +268,6 @@
     border: solid 1px black;
     height: 18em;
     background-color: #f2f2f2;
- /* color: rgb(34, 33, 33) */
     max-width: 35em;
   }
   #btnAddFaq{
@@ -305,8 +288,6 @@
   }
 
   .faq-inputs {
-      /* padding: 5px;
-      margin-top: 0.5em; */
       width: 20em;
       padding: 12px;
       border: 1px solid #ccc;
@@ -314,8 +295,6 @@
       position: relative;
   }
   .faq-textarea {
-    /* padding: 5px;
-    margin-top: 0.5em; */
     width: 20em;
     padding: 12px;
     border: 1px solid #ccc;
@@ -376,10 +355,6 @@
     font-size: 8px;
     float: right;
   }
-/* 
-  #submitTicket {
-    margin-top: 3em;
-  } */
 
   .popup-create-ticket input[type=text]{
     width: 20em;
@@ -402,12 +377,8 @@
     padding: 1px 20px;
     cursor: pointer;
     padding: 4px 10px;
-    /* margin-left: 1em; */
     border-radius: 4px;
     border: solid 2px #ccc;
-    /* width: 34%; */
-    /* float: left; */
-    /* margin-right: 1em; */
     margin-top: 1em;
     width: 100%;
   }
@@ -464,7 +435,6 @@
 }
 
 .form-manage-tickets{
-    /* border-radius: 5px; */
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     background-color: #f2f2f2;
@@ -474,10 +444,6 @@
     border-right: groove;
     border-bottom: groove;
     min-width: 25em;
-    /* margin-left: auto; */
-    /* margin-right: auto; */
-    /* border: groove;
-*/
 }
 
 .authenticate-btn {
@@ -485,7 +451,6 @@
   background-color: #2e79ab;
   color: white;
   padding: 10px;
-  /* margin: 8px 0; */
   margin-top: 2em;
   border: none;
   border-radius: 4px;
@@ -505,10 +470,6 @@
 .form-header {
   text-align: center;
 }
-
-
-
-
 
 @media screen and (max-width: 768px) {
   .form-manage-tickets, .form-manage, .form-manage-auth, #faq-form, .del-faq { 

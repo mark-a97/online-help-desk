@@ -4,7 +4,7 @@
     ob_start();
     $message = "";
     $currentPage = "My Tickets";
-    // include('includes/dbConnect.php');
+
     include('includes/navbar.php');
     include_once($_SERVER['DOCUMENT_ROOT'].'/helpdesk/classes/admin.php');
 

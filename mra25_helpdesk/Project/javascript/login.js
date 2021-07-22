@@ -2,8 +2,6 @@ window.addEventListener("load", init);
 
 function init(){
 	
-	//MAIN PAGE//
-
 	var btnRegister = document.querySelector("#btnRegister");
     btnRegister.addEventListener("click", pageRegister);
 

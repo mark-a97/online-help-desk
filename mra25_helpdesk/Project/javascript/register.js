@@ -2,8 +2,6 @@
 window.addEventListener("load", init);
 
 function init(){
-	
-
 
 	var btnRegister = document.querySelector("#btnRegister");
     btnRegister.addEventListener("click", pageRegister);
@@ -23,8 +21,6 @@ function init(){
         this.classList.toggle('fa-eye-slash');
     });
 
-	
-	
 }
 
 

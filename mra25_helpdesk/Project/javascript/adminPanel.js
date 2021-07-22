@@ -3,13 +3,13 @@ window.addEventListener("load", init);
 function init() {
 
   var a = document.querySelector("#activeTab");
-  a.addEventListener("click", one);
+  a.addEventListener("click", active);
   
   var b = document.querySelector("#assignedTab");
-  b.addEventListener("click", two);
+  b.addEventListener("click", assigned);
 
   var c = document.querySelector("#closedTab");
-  c.addEventListener("click", three);
+  c.addEventListener("click", closed);
 
  
   document.querySelector("#search-bar").addEventListener("click", function(e) {
@@ -46,7 +46,7 @@ addEventListener("keydown", event => {
   })
 });
 
-function one(){
+function active(){
   var a = document.querySelector("#Active");
   var b = document.querySelector("#Assigned");
   var c = document.querySelector("#Closed");
@@ -70,7 +70,7 @@ function one(){
 
 
 }
-function two(){
+function assigned(){
   var a = document.querySelector("#Active");
   var b = document.querySelector("#Assigned");
   var c = document.querySelector("#Closed");
@@ -120,7 +120,7 @@ function two(){
 
   
 }
-function three(){
+function closed(){
   var a = document.querySelector("#Active");
   var b = document.querySelector("#Assigned");
   var c = document.querySelector("#Closed");

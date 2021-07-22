@@ -3,10 +3,10 @@
     include_once($_SERVER['DOCUMENT_ROOT'].'/helpdesk/classes/functions.php');
     include_once($_SERVER['DOCUMENT_ROOT'].'/helpdesk/classes/tickets.php');
     include_once($_SERVER['DOCUMENT_ROOT'].'/helpdesk/classes/notifications.php');
-    // include('index.php');
-    // session_start();
+
     $db;
     $user = new User();
+    
     $functions = new Functions();
     $notif = new Notifications();
 
@@ -64,11 +64,6 @@
     <title>We Fix It</title>
 
 </head>
-
-
-<!-- <a href="#" class="dropbtn">    <button class="dropbtn"> 
-      <i class="fa fa-caret-down"></i></a> -->
-
 
 
 <div id='wrapper'>

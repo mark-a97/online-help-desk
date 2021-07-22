@@ -3,9 +3,10 @@
     session_start();
     ob_start();
     $currentPage = "Management";
-    // include('includes/dbConnect.php');
+
     include('includes/navbar.php');
     include_once($_SERVER['DOCUMENT_ROOT'].'/helpdesk/classes/admin.php');
+    
     $admin = new Admin();
 
     if($modify === 0) {
@@ -13,11 +14,8 @@
             header("Location: index.php");
         }
     }
-    else {
-        // echo $modify;
-    }
+   
 
-    // $db = new Database;
     $functions->isLoggedIn();
 
     if(isset($_POST['updateSettings'])){

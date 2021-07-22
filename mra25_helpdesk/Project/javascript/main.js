@@ -30,13 +30,9 @@ function init(){
                     /* the viewport is 600 pixels wide or less */
                     nav.className = 'side-nav';
                     navBar.style.marginLeft = "0";
-                    // active.style.marginLeft = "15em";
-                    // nav.style.display = 'none';
                 } else {
                     /* the viewport is more than than 600 pixels wide */
                     nav.className = 'side-nav-active';
-                    // active.style.marginLeft = "1em";
-                
                 }
             
             }
@@ -44,7 +40,12 @@ function init(){
         }
         
     }
-    // checkPage();
+    if(sPage == "register.php" || sPage == "login.php"){
+        var thisPage = document.querySelector("#page-name").textContent;
+          if (thisPage.toLowerCase() == "register" || thisPage.toLowerCase() == "login") {
+            checkPage();
+        }
+    }
 }
 
 var errors = 0;
@@ -53,9 +54,8 @@ var NULL = "";
 var clicked = false;
   
 function checkPage(){
-
     const currPage = document.querySelector("#page-name").textContent;
-    if(currPage == "login"){      
+    if(currPage.toLowerCase() === "login"){      
         document.querySelector("#btnLogin").addEventListener("click", function(e) {
 
             const emailInput = document.querySelector("#email-login").value;
@@ -68,7 +68,7 @@ function checkPage(){
                 clicked = false;
            }
 
-            valueChecks(emailInput, "Email", NULL, 255, 10);
+            valueChecks(emailInput, "Email", NULL, 255, 3);
 
             if(errors > 0){
                 e.preventDefault();
@@ -85,8 +85,8 @@ function checkPage(){
         });
     }
 
-    else if(currPage == "register"){
-        document.querySelector("#btnRegister").addEventListener("click", function(e) {
+    else if(currPage.toLowerCase() === "register"){
+        document.querySelector("#btnRegister").addEventListener("click", function(event) {
             errors = 0;
 
             const username = document.querySelector("#input-username").value;
@@ -114,7 +114,7 @@ function checkPage(){
              valueChecks(passConfirm, "Password", NULL, 255, 8);
 
              if(errors > 0){
-                 e.preventDefault();
+                 event.preventDefault();
                  var mainElement = document.querySelector("main");
                  var div = document.createElement("div");
                  var p = document.createElement("p");
@@ -127,7 +127,7 @@ function checkPage(){
              }
          });
     }
-    else if(currPage == "Dashboard"){
+    // else if(currPage == "Dashboard"){
     //     document.querySelector(".submit-btn").addEventListener("click", function(e) {
     //         errors = 0;
             
@@ -173,22 +173,10 @@ function checkPage(){
     //              clicked = true;
     //          }
     //      });
-    }
+    // }
   
 }
 
-// function alphanumeric(value){
-//     var str = value.match(/^[a-z0-9]+$/i);
-//     console.log(str.value);
-//     if(str != null){
-//         console.log(match);
-//         return true;
-//     }
-//     else {
-//         console.log(match);
-//         return false;
-//     }
-// }
 
 function is_numeric(number){    
     var numbers = /^[0-9]+$/;
@@ -211,19 +199,7 @@ function valueChecks(value, type, alphaNumeric, max_length, min_length){
                 returnedMessage = type + " must be alpha numerical";
             }
         }
-        // else if(alphaNumeric == "NO"){
-        //     if(alphanumeric(value)){
-        //         errors ++;
-        //         returnedMessage = type + " must not be alpha numerical";
-        //     }
-        // }
-        // if(alphaNumeric == "NUMBERS_ONLY"){
-        //     if(!is_numeric(value)){
-        //         errors ++;
-        //         returnedMessage = type + " must not contain letters";
-        //     }
 
-        // }
         else if(alphaNumeric == "TEXT_ONLY"){
 
         }
@@ -356,7 +332,6 @@ function mobileNav() {
     var width = document.documentElement.clientWidth;
 
     if(navlist.className == "side-nav-active"){
-        // nav.style.display = 'none';
         if(width > 600){
         nav.style.marginLeft = '-13em';
         
@@ -364,8 +339,6 @@ function mobileNav() {
         else {
             nav.style.display = "block";
         }
-        
-            // nav.style.display = "none";
         navlist.className = 'side-nav';
     }
     else {
@@ -375,9 +348,6 @@ function mobileNav() {
         else {
             // nav.style.display = "none";
         }
-        
-            // nav.style.display = "block";
-        
         navlist.className = 'side-nav-active';
     }
 }

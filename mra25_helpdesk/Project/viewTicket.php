@@ -3,15 +3,10 @@
     ob_start();
 
     $currentPage = "View Ticket";
-
-    // include('includes/dbConnect.php');
     include('includes/navbar.php');
+    
     $tickets = new Ticket();
-    // $db = new Database;
     $functions->isLoggedIn();
-
-    // $url = $_SERVER['REQUEST_URI']; 
-    // $ticketID = substr($url, strpos($url, "=") +1 );
 
     if(isset($_POST['submitReply'])){
         $tickets->submitReply();
@@ -61,10 +56,6 @@
                             echo "<input class='submit-btn-ticket' type='submit' id='updateDescription' name='addReply' value='Add Reply'>";
                         }
 
-                    
-                        if($user->isAdmin() == 0){
-                            $tickets->getClosedStatus($ticketID);
-                        }
                         ?>
                         
                  

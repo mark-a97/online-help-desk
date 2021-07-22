@@ -4,10 +4,10 @@ function init() {
 
     
   var a = document.querySelector("#activeTab");
-  a.addEventListener("click", one);
+  a.addEventListener("click", active);
 
   var c = document.querySelector("#closedTab");
-  c.addEventListener("click", three);
+  c.addEventListener("click", closed);
   
   var add = document.querySelector("#btnCreateTicket");
   add.addEventListener("click", createTicket);
@@ -16,17 +16,6 @@ function init() {
   var submit = document.querySelector("#submitTicket");
   submit.addEventListener("click", checkFields);
 
-
-  // var x =  document.querySelectorAll('.btnView');
-  // for (var i = 0; i < x.length; i++) {
-  //   x[i].addEventListener('click', function(e) {
-  //     e.preventDefault();
-  //     console.clear();
-  //     console.log("You clicked:", this.value);
-  //     window.open('viewTicket.php?ticketID=' + this.value, '_self');
-
-  //   });
-  // }
 }
 
 function checkFields(e) {
@@ -103,7 +92,7 @@ function createTicket(e) {
 }
 
 
-function one(){
+function active(){
   var a = document.querySelector("#Active");
   var c = document.querySelector("#Closed");
 
@@ -121,7 +110,7 @@ function one(){
 
 }
 
-function three(){
+function closed(){
   var a = document.querySelector("#Active");
   var c = document.querySelector("#Closed");
 

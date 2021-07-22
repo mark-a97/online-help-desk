@@ -42,8 +42,6 @@ class Functions{
             return $days;
         }
     }
-
-
     
     public function hidePhone($phone){
         $first = substr($phone, 0, 2); // finds first 2 digits
@@ -60,7 +58,7 @@ class Functions{
     }
 
           
-    public function valueChecks($value, $type, $alphaNumeric, $max_length, $min_length){
+    public function valueChecks($value, $type, $alphaNumeric, $max_length, $min_length){ //function to check whether an input it suitable 
         trim($value);
         if($alphaNumeric != NULL){
             if($alphaNumeric == "YES"){
@@ -119,12 +117,5 @@ class Functions{
             header("Location: login.php");
         }
     }
-
-
-  
-
-
-
-
 
 }//Closing

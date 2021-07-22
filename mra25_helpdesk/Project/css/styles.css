@@ -1,38 +1,10 @@
 
 
-
-/* #wrapper {
-  background-color: #0091ff;
-    clip-path: polygon(29% 0, 100% 0, 100% 70%, 70% 100%, 0 100%, 0 28%);
-} */
-
  body {
   font-family: 'Montserrat', sans-serif;
   margin: 0;
  }
 
-
-
-/* input[type=submit] {
-  width: 100%;
-  background-color: rgb(55 129 230);
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-select {
-  border-radius: 6px;
-  padding: 0.2em;
-  background-color: rgb(133 173 239);
-
-}
-
-input[type=submit]:hover {
-  background-color: rgb(0 108 255);
-} */
 
 .form-style {
   max-width: 60em;
@@ -50,7 +22,6 @@ input[type=submit]:hover {
   border-bottom-right-radius: 5px;
   background-color: #f2f2f2;
   padding: 20px;
-  /* z-index: 2; */
   border-left: groove;
   border-right: groove;
   border-bottom: groove;
@@ -69,31 +40,11 @@ input[type=submit]:hover {
   min-width: 8em;
 }
 .inside-main-view {
-  /* display: flex;
-  justify-content: center;
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 20px;
-  z-index: 2;
-  margin-left: 5em;
-  margin-right: 5em;
-  border: groove;
-  height: fit-content;
-  width: fit-content;
-  max-width: 45em; */
   display: flex;
-  /* justify-content: center; */
   border-radius: 5px;
   background-color: #f2f2f2;
   padding: 20px;
-  /* z-index: 2; */
-  /* margin-left: 5em; */
-  /* margin-right: 5em; */
   border: groove;
-  /* height: fit-content; */
-  /* position: absolute; */
-  /* width: fit-content; */
-  /* max-width: 45em; */
   width: 80%;
 }
 
@@ -106,28 +57,15 @@ input[type=submit]:hover {
 .link-button {
   background: none;
   border: none;
-  /* color: blue; */
-  /* text-decoration: underline; */
   cursor: pointer;
   font-size: 1em;
   font-family: serif;
-  /* position: absolute; */
   text-align: left;
   margin-right: 2px;
-  /* padding-bottom: 0; */
   padding: 0;
   margin-left: 1px;
   outline: none;
 }
-
-
-
-
-
-
-
-
-
 
 .header-description {
     font-size: 11px;
@@ -143,7 +81,6 @@ input[type=submit]:hover {
 }
 .profile-settings {
     margin-bottom: 2em;
-    /* border-style: groove; */
   }
 
 .settings-list {
@@ -154,10 +91,6 @@ input[type=submit]:hover {
   text-align: center !important;
 }
 
-/* 
-#role-option {
-  display: grid;
-} */
 #role-option label {
   display: inline-block;
   width: 130px;
@@ -190,7 +123,6 @@ input[type=submit]:hover {
 }
 .select-input-manage {
   padding: 4px 10px;
-  /* margin-left: 1em; */
   border-radius: 4px;
   border: solid 2px #ccc;
   width: 50%;
@@ -209,7 +141,6 @@ input[type=submit]:hover {
   display: flex;
   margin: 0 auto;
   justify-content: center;
-  /* margin-top: 3em; */
 }
 
 .submit-btn:hover, .submit-btn-faq:hover {
@@ -231,7 +162,6 @@ input[type=submit]:hover {
 
 .input-type {  
   padding: 4px 10px;
-  /* margin-left: 1em; */
   border-radius: 4px;
   border: solid 2px #ccc;
   width: 50%;
@@ -262,7 +192,6 @@ input[type=submit]:hover {
   width: 3.5em;
   height: 3.5em;
   border-radius: 50%;
-  /* float: left; */
   z-index: 10;
   position: absolute;
   margin-left: 5px;
@@ -326,17 +255,10 @@ input[type=submit]:hover {
  overflow:hidden;
 }
 
-/* Responsive columns - one column layout (vertical) on small screens */
-@media screen and (max-width: 600px) {
 
-}
+
 
 .image-container input {
-  /* display: block;
-  margin-top: 1em;
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto; */
   margin-top: 2em;
 }
 
@@ -438,9 +360,7 @@ input[type=submit]:hover {
     margin-left: auto;
     display: flex;
     margin-right: auto;
-    /* margin: 8px 0; */
     margin-top: 14px;
-    /* display: inline-block; */
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
@@ -540,6 +460,7 @@ input[type=submit]:hover {
     .form-style-view-ticket{
       margin-left: 1em;
       margin-right: 1em;
+      min-width: auto;
     }
     #search-bar {width: 95%; margin-bottom: 6px;}
     .tablinks {margin-bottom: 5px;}

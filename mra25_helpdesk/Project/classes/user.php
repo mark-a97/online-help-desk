@@ -10,7 +10,7 @@ include('functions.php');
         public $returnedMessage;
 
         public function __construct(){ 
-            $this->database = new mysqli("localhost", "mra25_newUser", "JkI=4zvo36xz", "mra25_helpDesk");
+            $this->database = new mysqli("XXXX", "XXXX", "XXXX", "XXXX");
             // $this->database = new mysqli("localhost", "root", "", "helpdesk");
             
         }
@@ -146,9 +146,7 @@ include('functions.php');
 
 
         public function updateAccount(){
-            // $keys = ['name', 'email', 'current_password', 'new_password', 'new_password_confirm'];
-             // $err = array();
-
+            
              $file = $_FILES['file'];
              $fileTmpName = $file['tmp_name'];
              $fileName = $file['name'];
@@ -568,13 +566,6 @@ include('functions.php');
         }
 
     }
-
-
-    //ADMIN PERMS
-
-        
-
-        
 
     }// END CLASs
 

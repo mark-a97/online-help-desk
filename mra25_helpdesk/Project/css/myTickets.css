@@ -1,6 +1,5 @@
 
 body {
-    /* background-color: #a4d2f5; */
     margin: 0;
 }
 table { 
@@ -14,7 +13,6 @@ tr:nth-of-type(odd) {
   background: #eee; 
 }
 th { 
-  /* background: #333;  */
   background: #2e79ab;
   color: white; 
   font-weight: bold; 
@@ -107,7 +105,6 @@ td, th {
 }
 .tab {
   overflow: hidden;
-  /* border: 1px solid #ccc; */
   background-color: #2e79ab;
   border: groove;
   border-top-right-radius: 5px;
@@ -219,10 +216,6 @@ td {
   }
 }
 
-
-
-
-
 @media 
 only screen and (max-width: 768px),
 (min-device-width: 768px) and (max-device-width: 1024px)  {
@@ -256,7 +249,6 @@ only screen and (max-width: 768px),
 	tr { border: 1px solid #ccc; }
 	
 	td { 
-		/* Behave  like a "row" */
 		border: none;
 		border-bottom: 1px solid #eee; 
 		position: relative;
@@ -266,7 +258,6 @@ only screen and (max-width: 768px),
   td:before { 
 		/* Now like a table header */
 		position: absolute;
-		/* Top/left values mimic padding */
 		top: 6px;
 		left: 6px;
 		width: 45%; 

@@ -3,14 +3,9 @@
     ob_start();
 
     $currentPage = "Register";
-    // include('includes/dbConnect.php');
     include('includes/navbar.php');
-    // include('includes/user.php');
-    // $db = new Database;
   
     if(isset($_POST['btnRegister'])) {
-        // $user = new User();
-        // $database = new Database;
         $user->register();   
     }
 ?>
@@ -41,37 +36,7 @@
             </form>
         </div>
     
-        <!-- <form class='form-style' action="register.php" method="POST">
-        <div class='form-manage-auth'>
-        <h3>Register</h3>
-        <hr>
-
-
-            <input type="text" class='input-type'name="fUsername" placeholder='Username'>
-
-
-            <input type="text" class='input-type'name="forename" placeholder='First Name'>
-
-
-            <input type="text" class='input-type'name="surname" placeholder='Last Name'>
-
-
-            <input type="text" class='input-type'name="mobile" placeholder='Mobile Number (not required)'>
-
-
-            <input type="email" class='input-type' name="fEmail" placeholder='Email'>
-
-            <input type="password" class='input-type' name="fPassword" placeholder='Password'>
-
-            <input type="password" class='input-type' name="confirm_password" placeholder='Confirm Password'>
-
-        
-
-            <input class='authenticate-btn' type="button" id="btnBack" value="Back">
-            <input class='authenticate-btn' type="submit" name="btnRegister" id="btnRegister">
-            </div>
-        </form> -->
-</div>
+    </div>
     </main>
     <?php
     include_once('includes/footer.php');

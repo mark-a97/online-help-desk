@@ -7,7 +7,7 @@
 
         public function __construct(){ 
             // $this->database = new mysqli("localhost", "root", "", "helpdesk");
-            $this->database = new mysqli("localhost", "mra25_newUser", "JkI=4zvo36xz", "mra25_helpDesk");
+            $this->database = new mysqli("XXXX", "XXXX", "XXXX", "XXXX");
             include_once('notifications.php');
             $this->notif = new Notifications();
             
@@ -76,7 +76,7 @@
             $stmt->execute();
 
             
-            $stmt->store_result(); //stores the result to check the rows
+            $stmt->store_result();
             if($stmt->num_rows == 0){
                 $sql = "SELECT ticketStatus FROM tickets WHERE ticketID = ? AND ticketStatus = 'Closed'";
                 $stmt = $this->database->prepare($sql);
@@ -288,7 +288,7 @@
         }
 
 
-        public function viewTicket($ticketID){ //NEED TO FIX - STILL GETTING REPLIES FROM A CLOSED TICKET
+        public function viewTicket($ticketID){
             $functions = new Functions();
             
             $foundTicket = false;
@@ -406,7 +406,7 @@
                 $replyFrom = "User";
                
                     $this->notif->addReplyNotification($username, $subject, $replyFrom, NULL);
-                // header('Location: viewTicket.php?ticketID='.$ticketID);
+                header('Location: viewTicket.php?ticketID='.$ticketID);
             }
             else if(!empty($ticketReply) && $user->isAdmin() >= 1){
                 $sql = "INSERT INTO replies (ticketID, fUsername, replyTime, ticketReply)
@@ -415,8 +415,8 @@
                 $stmt->bind_param("ssss", $ticketID, $username, $date, $ticketReply);
                 $stmt->execute();
 
-                $stmt = $this->database->prepare("UPDATE tickets SET ticketStatus = ?, ticketLastMessage = ?, ticketStatus = ? WHERE ticketID=?");
-                $stmt->bind_param("sssi", $description, $date, $status, $ticketID);
+                $stmt = $this->database->prepare("UPDATE tickets SET ticketLastMessage = ?, ticketStatus = ? WHERE ticketID=?");
+                $stmt->bind_param("ssi", $date, $status, $ticketID);
                 $stmt->execute();
                 $replyFrom = "Admin";
                
@@ -428,7 +428,7 @@
                     $stmt->bind_param("i", $ticketID);
                     $stmt->execute();
                 }
-                // header('Location: viewTicket.php?ticketID='.$ticketID);
+                header('Location: viewTicket.php?ticketID='.$ticketID);
             }
         }
 

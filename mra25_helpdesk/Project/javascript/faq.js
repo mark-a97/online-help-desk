@@ -2,14 +2,9 @@ window.addEventListener("load", init);
 
 function init(){
 	
-	//MAIN PAGE//
-
 	var btnAdd = document.querySelector("#btnAddFaq");
-  var btnDel = document.querySelector("#btnRemoveFaq");
-    
-	
-    // var btnHide = document.querySelector("#btnCloseFaq");
-    // btnHide.addEventListener("click", hideForm);
+    var btnDel = document.querySelector("#btnRemoveFaq");
+
 
     if(btnAdd) {
       btnAdd.addEventListener("click", showForm);

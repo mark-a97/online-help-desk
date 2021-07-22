@@ -9,7 +9,7 @@ class Admin{
 
     public function __construct(){ 
         // $this->database = new mysqli("localhost", "root", "", "helpdesk");
-        $this->database = new mysqli("localhost", "mra25_newUser", "JkI=4zvo36xz", "mra25_helpDesk");
+        $this->database = new mysqli("XXXX", "XXXX", "XXXX", "XXXX");
         include_once('notifications.php');
         $this->notif = new Notifications();
         
@@ -144,7 +144,7 @@ class Admin{
                     $stmt = $this->database->prepare($sql);
                     $stmt->bind_param("s", $department);
                     $stmt->execute();
-                    $stmt->store_result(); //stores the result to check the rows
+                    $stmt->store_result(); 
                     if($stmt->num_rows === 0){
                         $subject = "";
                         $sql = "INSERT INTO admin_speciality (userSpeciality) VALUES (?)";
@@ -167,7 +167,7 @@ class Admin{
                 $stmt = $this->database->prepare($sql);
                 $stmt->bind_param("s", $department);
                 $stmt->execute();
-                $stmt->store_result(); //stores the result to check the rows
+                $stmt->store_result(); 
                 if($stmt->num_rows === 1){
                     $sql = "DELETE FROM admin_speciality WHERE userSpeciality = ?";
                     $stmt = $this->database->prepare($sql);
@@ -186,7 +186,7 @@ class Admin{
             $stmt = $this->database->prepare($sql);
             $stmt->bind_param("s", $speciality);
             $stmt->execute();
-            $stmt->store_result(); //stores the result to check the rows
+            $stmt->store_result();
             if($stmt->num_rows == 0){
                 if(!empty($speciality)){
                     $sql = "INSERT INTO admin_speciality (userSpeciality) VALUES (?)";
@@ -207,9 +207,7 @@ class Admin{
     }
 
     
-    public function getSettings($task){ // Set to user possibly
-        // $newRole = $_POST['userRole'];
-        // $speciality = $_POST['activeUserSpeciality'];
+    public function getSettings($task){ 
         if($task == 'speciality'){
             $sql = "SELECT * FROM admin_speciality";
             $stmt = $this->database->prepare($sql);
@@ -335,9 +333,6 @@ class Admin{
     }
 
 
-
-    //CREATE ANOTHER ACTIVETICKET ONCE TICKET IS ASSINGED TO AN ADMIN //
-
     public function getAssignedTickets($currentPage){
         $functions = new Functions();
         $user = new User();
@@ -351,9 +346,7 @@ class Admin{
             ticketDate, ticketStatus, priority, ticketLastMessage 
             FROM tickets WHERE assignedTo LIKE ? AND NOT ticketStatus = 'Closed' ORDER BY ticketDate DESC");
         $sql->bind_param("s", $username);
-        // $sql->bind_param("s", $username);
         $sql->execute();
-        // $sql->store_result();
 
         include_once($_SERVER['DOCUMENT_ROOT'].'/helpdesk/includes/navBar.php');
         
@@ -407,7 +400,6 @@ class Admin{
                     </tr>
                 </tbody>
             </table><br>";
-            //<button class='btnView' value='".$row['ticketID']."' name='editTicket'>Reply</button></td>
         } 
     }
 
@@ -418,15 +410,13 @@ class Admin{
         $returnedResults = false;
         $url = $_SERVER['REQUEST_URI']; 
         $url = substr($url, strpos($url, "a"));
-        // $username = $_SESSION['fUsername'];
+        
         $sql = $this->database->prepare(
             "SELECT ticketID, fUsername, ticketSubject, ticketDescription,
             ticketDate, ticketStatus, priority, ticketLastMessage 
             FROM tickets WHERE assignedTo IS NULL ORDER BY ticketDate DESC");
-                                         
-        // $sql->bind_param("s", $username);
+
         $sql->execute();
-        // $sql->store_result();
         
         $result = $sql->get_result();
 
@@ -507,13 +497,11 @@ class Admin{
             </table><br>     
             ";
             
-
-            //<button class='btnView' value='".$row['ticketID']."' name='editTicket'>Reply</button></td>
         } 
         if($returnedResults === true){
             echo " <input class='submit-btn' type='submit' value='Update' name='panelUpdate'>";
         }
-    }//    <td>".$row['priority']."</td>
+    }
 
 
     
@@ -583,39 +571,32 @@ class Admin{
         $checkboxes = array();
         $last;
         if(isset($_POST['selectedTicket'])){
-            foreach($_POST['selectedTicket'] as $ticketName){
-                $checkboxes[] = $ticketName;
+            foreach($_POST['selectedTicket'] as $ticketName){ //check through the inputs with the name if selectedTicket[]
+                $checkboxes[] = $ticketName; //set to checkboxes array
                 $last = $ticketName;
                 
             }
     
-            // print_r($checkboxes);
-            // echo "<br>";
-            // echo "Last ticket was: " .$last;
             $names = array();
-            $ids = array();
+            $ids = array(); //creating 2 new arrays to link the names and the ids
            
             foreach($_POST['ticketName'] as $ticketName){
-                $ids[] = $ticketName;
+                $ids[] = $ticketName; //similar to the checkboxes array
             }
         
             foreach($_POST['assigned'] as $assigned){
                 $names[] = $assigned;
             }
-            
-            // print_r($names);
-            // print_r($ids);
-            // print_r($names);
-            $res = array_combine($ids, $names);
+
+            $res = array_combine($ids, $names); //combining the two arrays 
             
             foreach($checkboxes as $id) 
             {
           
                 foreach($res as $key => $value)
                 { 
-                    if($key == $id){
+                    if($key == $id){ //checking that the key matches the ID, if so it will assign an admin to that specific ticket
                   
-                        // echo "<br> ID " . $id." checkbox is checked assignedTo = ".$value;
                         $stmt = $this->database->prepare("UPDATE tickets SET assignedTo = ?, ticketStatus = 'In progress' WHERE ticketID=?");
                         $stmt->bind_param("si", $value, $id);
                         $stmt->execute(); 
@@ -641,82 +622,6 @@ class Admin{
             }        
         }
     }
-    
-    // public function checkTicket(){
-    //     $username = $_SESSION['fUsername'];
-    //     $checkboxes = array();
-    //     $last;
-    //     if(isset($_POST['selectedTicket'])){
-    //         foreach($_POST['selectedTicket'] as $ticketName){
-    //             if(isset($_POST['selectedTicket'])){
-    //             $checkboxes[] = $ticketName;
-    //             $last = $ticketName;
-    //             }
-                
-    //         }
-    //         echo "<br>";
-    
-    //         // print_r($checkboxes);
-    //         // echo "<br>";
-    //         // echo "Last ticket was: " .$last;
-    //         $names = array();
-    //         $ids = array();
-           
-    //         foreach($_POST['ticketName'] as $ticketName){
-    //             if(isset($_POST['ticketName'])){
-    //                 $ids[] = $ticketName;
-    //             }
-    //         }
-        
-    //         foreach($_POST['assigned'] as $assigned){
-    //             if(isset($_POST['assigned'])){
-    //                 $names[] = $assigned;
-    //             }
-    //         }
-            
-    //         // print_r($names);
-    //         // print_r($ids);
-    //         print_r($names);
-    //         print_R($checkboxes);
-    //         $res = array_combine($checkboxes, $names); // checkboxes was $id;
-    //         print_r($res);
-            
-    //         // foreach($checkboxes as $id) 
-    //         // {
-                
-          
-    //             foreach($res as $key => $value)
-    //             { 
-    //                 // if($key == $id){
-
-    //                     $stmt = $this->database->prepare("UPDATE tickets SET assignedTo = ?, ticketStatus = 'In progress' WHERE ticketID=?");
-    //                     $stmt->bind_param("si", $value, $id);
-    //                     $stmt->execute(); 
-
-    //                     $subject = "";
-    //                     $sql = $this->database->prepare("SELECT ticketSubject, ticketID FROM tickets WHERE ticketID = ?");
-    //                     $sql->bind_param("i", $ticketID);
-    //                     $sql->execute();
-    //                     $result = $sql->get_result();   
-
-    //                     while ($row = $result->fetch_assoc()) {
-    //                         $subject = $row['ticketSubject'];
-    //                         $id = $row['ticketID'];
-    //                     }
-                        
-    //                     $replyFrom = "assignedTo";
-    //                     $this->notif->addReplyNotification($username, $subject, $replyFrom, $id);
-                        
-    //                     $replyFrom = "assignedToUser";
-    //                     $this->notif->addReplyNotification($username, $subject, $replyFrom, $id);
-
-    //                     // header("Location: adminPanel.php?assignedAdmin=True");
-
-    //                 // }  
-    //             }
-    //         // }        
-    //     }
-    // }
   
     public function faq($task){
         $username = $_SESSION['fUsername'];

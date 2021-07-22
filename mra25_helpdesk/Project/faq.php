@@ -3,12 +3,11 @@
     ob_start();
     $currentPage = "FAQ";
     $message = "";
-    // include('includes/dbConnect.php');
+
     include('includes/navbar.php');
     include_once($_SERVER['DOCUMENT_ROOT'].'/helpdesk/classes/admin.php');
 
     $admin = new Admin();
-    // $db = new Database;
     $functions->isLoggedIn();
     $adminCheck = $user->isAdmin();
 

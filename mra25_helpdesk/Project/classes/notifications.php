@@ -5,7 +5,7 @@ class Notifications{
 
     public function __construct(){ 
         // $this->database = new mysqli("localhost", "root", "", "helpdesk");
-        $this->database = new mysqli("localhost", "mra25_newUser", "JkI=4zvo36xz", "mra25_helpDesk");
+        $this->database = new mysqli("XXXX", "XXXX", "XXXX", "XXXX");
         
     }
 
@@ -37,7 +37,7 @@ class Notifications{
         $stmt->execute(); 
     }
 
-   
+ 
     
     public function addReplyNotification($username, $subject, $replyFrom, $id){
         $url = $_SERVER['REQUEST_URI']; 
@@ -51,7 +51,6 @@ class Notifications{
         $date = gmdate("Y:m:d H:i:s");
 
         if($replyFrom == "User"){
-            // NEED TO GRAB THE TECH NAME 
             $sql = $this->database->prepare("SELECT assignedTo FROM tickets WHERE ticketID = ?");
             $sql->bind_param("i", $ticketID);
             $sql->execute();
@@ -62,18 +61,19 @@ class Notifications{
             }
             $type = "Ticket";
             $entity = $ticketID;
-
-            $message = ' has replied to the ticket: ' . $subject . ' that you are watching. Click here to view.';
-            $sql = "INSERT INTO notifications (noti_from, noti_to, noti_type, noti_time, noti_entity, noti_msg, readNotification)
-            VALUES (?, ?, ?, ?, ?, ?, ?)";
-
-            $stmt = $this->database->prepare($sql);
-            $stmt->bind_param("ssssiss", $username, $notiTo, $type, $date, $entity, $message, $status);
-            $stmt->execute();  
+            
+            if($username !== $notiTo){
+                $message = ' has replied to the ticket: ' . $subject . ' that you are watching. Click here to view.';
+                $sql = "INSERT INTO notifications (noti_from, noti_to, noti_type, noti_time, noti_entity, noti_msg, readNotification)
+                VALUES (?, ?, ?, ?, ?, ?, ?)";
+    
+                $stmt = $this->database->prepare($sql);
+                $stmt->bind_param("ssssiss", $username, $notiTo, $type, $date, $entity, $message, $status);
+                $stmt->execute();  
+            }
 
         }
         else if($replyFrom == "Admin"){
-            // NEED TO GRAB THE TECH NAME 
             $sql = $this->database->prepare("SELECT fUsername FROM tickets WHERE ticketID = ?");
             $sql->bind_param("i", $ticketID);
             $sql->execute();
@@ -85,18 +85,20 @@ class Notifications{
             }
             $type = "Ticket";
             $entity = $ticketID;
-
-            $message = ' has replied to your ticket ('. $subject .'). Click here to view.';
-            $sql = "INSERT INTO notifications (noti_from, noti_to, noti_type, noti_time, noti_entity, noti_msg, readNotification)
-            VALUES (?, ?, ?, ?, ?, ?, ?)";
-
-            $stmt = $this->database->prepare($sql);
-            $stmt->bind_param("ssssiss", $username, $notiTo, $type, $date, $entity, $message, $status);
-            $stmt->execute();  
+            
+            
+            if($username !== $notiTo){
+                $message = ' has replied to your ticket ('. $subject .'). Click here to view.';
+                $sql = "INSERT INTO notifications (noti_from, noti_to, noti_type, noti_time, noti_entity, noti_msg, readNotification)
+                VALUES (?, ?, ?, ?, ?, ?, ?)";
+    
+                $stmt = $this->database->prepare($sql);
+                $stmt->bind_param("ssssiss", $username, $notiTo, $type, $date, $entity, $message, $status);
+                $stmt->execute();  
+            }
 
         }
         else if($replyFrom == "userReopen"){
-            // NEED TO GRAB THE TECH NAME 
             $sql = $this->database->prepare("SELECT assignedTo FROM tickets WHERE ticketID = ? AND ticketStatus = 'Closed' ");
             $sql->bind_param("i", $ticketID);
             $sql->execute();
@@ -109,16 +111,17 @@ class Notifications{
             $type = "ticketReopen";
             $entity = $ticketID;
 
-            $message = ' has reopened the ticket: '. $subject .'. Click here to view.';
-            $sql = "INSERT INTO notifications (noti_from, noti_to, noti_type, noti_time, noti_entity, noti_msg, readNotification)
-            VALUES (?, ?, ?, ?, ?, ?, ?)";
-            $stmt = $this->database->prepare($sql);
-            $stmt->bind_param("ssssiss", $username, $notiTo, $type, $date, $entity, $message, $status);
-            $stmt->execute();  
+            if($username !== $notiTo){
+                $message = ' has reopened the ticket: '. $subject .'. Click here to view.';
+                $sql = "INSERT INTO notifications (noti_from, noti_to, noti_type, noti_time, noti_entity, noti_msg, readNotification)
+                VALUES (?, ?, ?, ?, ?, ?, ?)";
+                $stmt = $this->database->prepare($sql);
+                $stmt->bind_param("ssssiss", $username, $notiTo, $type, $date, $entity, $message, $status);
+                $stmt->execute();  
+            }
 
         }
         else if($replyFrom == "addDepartment"){
-            // NEED TO GRAB THE TECH NAME 
             $sql = $this->database->prepare("SELECT fUsername FROM technicians");
             $sql->execute();
             $result = $sql->get_result(); 
@@ -128,16 +131,17 @@ class Notifications{
                 $entity = $ticketID;
                 $notiTo = $row['fUsername'];
 
-                $message = ' has added a new department ('. $subject .'). Click here to view.';
-                $sql = "INSERT INTO notifications (noti_from, noti_to, noti_type, noti_time, noti_entity, noti_msg, readNotification)
-                VALUES (?, ?, ?, ?, ?, ?, ?)";
-                $stmt = $this->database->prepare($sql);
-                $stmt->bind_param("ssssiss", $username, $notiTo, $type, $date, $entity, $message, $status);
-                $stmt->execute();  
+                if($username !== $notiTo){
+                    $message = ' has added a new department ('. $subject .'). Click here to view.';
+                    $sql = "INSERT INTO notifications (noti_from, noti_to, noti_type, noti_time, noti_entity, noti_msg, readNotification)
+                    VALUES (?, ?, ?, ?, ?, ?, ?)";
+                    $stmt = $this->database->prepare($sql);
+                    $stmt->bind_param("ssssiss", $username, $notiTo, $type, $date, $entity, $message, $status);
+                    $stmt->execute();  
+                }
             }
         }
         else if($replyFrom == "addAdmin"){
-            // NEED TO GRAB THE TECH NAME 
             $sql = $this->database->prepare("SELECT id, fUsername FROM users WHERE fUsername = ? ");
             $sql->bind_param("s", $id);
             $sql->execute();
@@ -149,16 +153,17 @@ class Notifications{
             }
             $type = "addAdmin";
 
-            $message = ' has set your admin level to: '. $subject .'. Click here to view your profile.';
-            $sql = "INSERT INTO notifications (noti_from, noti_to, noti_type, noti_time, noti_entity, noti_msg, readNotification)
-            VALUES (?, ?, ?, ?, ?, ?, ?)";
-            $stmt = $this->database->prepare($sql);
-            $stmt->bind_param("ssssiss", $username, $notiTo, $type, $date, $entity, $message, $status);
-            $stmt->execute();  
-            echo $username;
+            if($username !== $notiTo){
+                $message = ' has set your admin level to: '. $subject .'. Click here to view your profile.';
+                $sql = "INSERT INTO notifications (noti_from, noti_to, noti_type, noti_time, noti_entity, noti_msg, readNotification)
+                VALUES (?, ?, ?, ?, ?, ?, ?)";
+                $stmt = $this->database->prepare($sql);
+                $stmt->bind_param("ssssiss", $username, $notiTo, $type, $date, $entity, $message, $status);
+                $stmt->execute();  
+                // echo $username;
+            }
         }
         else if($replyFrom == "removeAdmin"){
-            // NEED TO GRAB THE TECH NAME 
             $sql = $this->database->prepare("SELECT id, fUsername FROM users WHERE fUsername = ? ");
             $sql->bind_param("s", $id);
             $sql->execute();
@@ -170,12 +175,14 @@ class Notifications{
             }
             $type = "removeAdmin";
 
-            $message = ' has removed you as an Admin. Click here to view your profile.';
-            $sql = "INSERT INTO notifications (noti_from, noti_to, noti_type, noti_time, noti_entity, noti_msg, readNotification)
-            VALUES (?, ?, ?, ?, ?, ?, ?)";
-            $stmt = $this->database->prepare($sql);
-            $stmt->bind_param("ssssiss", $username, $notiTo, $type, $date, $entity, $message, $status);
-            $stmt->execute();  
+            if($username !== $notiTo){
+                $message = ' has removed you as an Admin. Click here to view your profile.';
+                $sql = "INSERT INTO notifications (noti_from, noti_to, noti_type, noti_time, noti_entity, noti_msg, readNotification)
+                VALUES (?, ?, ?, ?, ?, ?, ?)";
+                $stmt = $this->database->prepare($sql);
+                $stmt->bind_param("ssssiss", $username, $notiTo, $type, $date, $entity, $message, $status);
+                $stmt->execute();  
+            }
         }
         else if($replyFrom == "assignedTo"){
             $sql = $this->database->prepare("SELECT assignedTo, ticketSubject FROM tickets WHERE ticketID = ? ");
@@ -191,12 +198,14 @@ class Notifications{
             }
             $type = "assignedTo";
 
-            $message = ' has assigned you to the ticket: '.$subject.'. Click here to view.';
-            $sql = "INSERT INTO notifications (noti_from, noti_to, noti_type, noti_time, noti_entity, noti_msg, readNotification)
-            VALUES (?, ?, ?, ?, ?, ?, ?)";
-            $stmt = $this->database->prepare($sql);
-            $stmt->bind_param("ssssiss", $username, $notiTo, $type, $date, $entity, $message, $status);
-            $stmt->execute();  
+            if($username !== $notiTo){
+                $message = ' has assigned you to the ticket: '.$subject.'. Click here to view.';
+                $sql = "INSERT INTO notifications (noti_from, noti_to, noti_type, noti_time, noti_entity, noti_msg, readNotification)
+                VALUES (?, ?, ?, ?, ?, ?, ?)";
+                $stmt = $this->database->prepare($sql);
+                $stmt->bind_param("ssssiss", $username, $notiTo, $type, $date, $entity, $message, $status);
+                $stmt->execute();  
+            }
         }
         else if($replyFrom == "assignedToUser"){
             $assignee;
@@ -213,12 +222,14 @@ class Notifications{
             }
             $type = "assignedToUser";
 
-            $message = ' has assigned '.$assignee. ' to your ticket: '. $subject .'. You should get a response soon.';
-            $sql = "INSERT INTO notifications (noti_from, noti_to, noti_type, noti_time, noti_entity, noti_msg, readNotification)
-            VALUES (?, ?, ?, ?, ?, ?, ?)";
-            $stmt = $this->database->prepare($sql);
-            $stmt->bind_param("ssssiss", $username, $notiTo, $type, $date, $entity, $message, $status);
-            $stmt->execute();  
+            if($username !== $notiTo){
+                $message = ' has assigned '.$assignee. ' to your ticket: '. $subject .'. You should get a response soon.';
+                $sql = "INSERT INTO notifications (noti_from, noti_to, noti_type, noti_time, noti_entity, noti_msg, readNotification)
+                VALUES (?, ?, ?, ?, ?, ?, ?)";
+                $stmt = $this->database->prepare($sql);
+                $stmt->bind_param("ssssiss", $username, $notiTo, $type, $date, $entity, $message, $status);
+                $stmt->execute();  
+            }
         }
         else if($replyFrom == "changePerms"){
             $notiTo = $subject;
@@ -236,12 +247,14 @@ class Notifications{
             }
             $type = "changePerms";
 
-            $message = ' has changed your permissions delete: '.$delete.', modify: '.$modify.'. Click here to view your profile.';
-            $sql = "INSERT INTO notifications (noti_from, noti_to, noti_type, noti_time, noti_entity, noti_msg, readNotification)
-            VALUES (?, ?, ?, ?, ?, ?, ?)";
-            $stmt = $this->database->prepare($sql);
-            $stmt->bind_param("ssssiss", $username, $notiTo, $type, $date, $entity, $message, $status);
-            $stmt->execute();  
+            if($username !== $notiTo){
+                $message = ' has changed your permissions delete: '.$delete.', modify: '.$modify.'. Click here to view your profile.';
+                $sql = "INSERT INTO notifications (noti_from, noti_to, noti_type, noti_time, noti_entity, noti_msg, readNotification)
+                VALUES (?, ?, ?, ?, ?, ?, ?)";
+                $stmt = $this->database->prepare($sql);
+                $stmt->bind_param("ssssiss", $username, $notiTo, $type, $date, $entity, $message, $status);
+                $stmt->execute();  
+            }
         }
         else if($replyFrom == "deleteTicket"){
             $notiTo = "";
@@ -256,20 +269,21 @@ class Notifications{
                 $entity = $id;
             }
             $type = "deleteTicket";
-
-            $message = ' has deleted your ticket: '. $subject . '. Click here to view your tickets';
-            $sql = "INSERT INTO notifications (noti_from, noti_to, noti_type, noti_time, noti_entity, noti_msg, readNotification)
-            VALUES (?, ?, ?, ?, ?, ?, ?)";
-            $stmt = $this->database->prepare($sql);
-            $stmt->bind_param("ssssiss", $username, $notiTo, $type, $date, $entity, $message, $status);
-            $stmt->execute();  
-
-            echo $status;
-            
-            $sql = "DELETE FROM tickets WHERE ticketID = ?";
-            $stmt = $this->database->prepare($sql);
-            $stmt->bind_param("i", $id);
-            $stmt->execute(); 
+    
+            if($username !== $notiTo){
+                $message = ' has deleted your ticket: '. $subject . '. Click here to view your tickets';
+                $sql = "INSERT INTO notifications (noti_from, noti_to, noti_type, noti_time, noti_entity, noti_msg, readNotification)
+                VALUES (?, ?, ?, ?, ?, ?, ?)";
+                $stmt = $this->database->prepare($sql);
+                $stmt->bind_param("ssssiss", $username, $notiTo, $type, $date, $entity, $message, $status);
+                $stmt->execute();  
+    
+                
+                $sql = "DELETE FROM tickets WHERE ticketID = ?";
+                $stmt = $this->database->prepare($sql);
+                $stmt->bind_param("i", $id);
+                $stmt->execute(); 
+            }
         }
     }
 

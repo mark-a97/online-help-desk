@@ -2,9 +2,8 @@ window.addEventListener("load", init);
 
 function init(){
 	
-	//MAIN PAGE//
 
-update();
+    update();
 
 }
 

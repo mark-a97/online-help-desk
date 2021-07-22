@@ -4,11 +4,9 @@
     $currentPage = "Dashboard";
     $message = "";
 
-    // include('includes/dbConnect.php');
     include('includes/navbar.php');
 
     
-    // $db = new Database;
     $functions->isLoggedIn();
     $adminCheck = $user->isAdmin();
 
@@ -47,7 +45,6 @@
             echo "<div class='success-div'><p class='error-message'>"; echo $user->returnedMessage . "</p> </div>";
         }
     ?> 
-        <!-- <h2 id='form-heading'>User Settings</h2> -->
         <div class='image-container'>
             <?php $user->getImg('user-settings'); ?>
             <input type="file" name="file" id="file" class="file" />

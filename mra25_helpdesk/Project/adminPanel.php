@@ -2,10 +2,12 @@
 
     session_start();
     ob_start();
+    
     $currentPage = "Admin Dashboard";
-    // include('includes/dbConnect.php');
+
     include('includes/navbar.php');
     include_once($_SERVER['DOCUMENT_ROOT'].'/helpdesk/classes/admin.php');
+    
     $tickets = new Ticket();
     $admin = new Admin();
     $message = "";
@@ -14,8 +16,8 @@
         header("Location: index.php");
     }
 
-    // $db = new Database;
     $functions->isLoggedIn();
+    
     if(isset($_POST['activeTickets'])){
         $tickets->addReply();
     }

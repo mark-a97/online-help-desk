@@ -1,23 +1,24 @@
 
 <?php
-   include('../classes/notifications.php');
+  include('../classes/notifications.php');
+
 
    if(isset($_COOKIE['session_cookie'])){
        $db = new Notifications();
    
     $username = $_COOKIE['session_cookie'];
-//    $username = $_SESSION['fUsername'];
 
    
-$servername = "localhost";
-$susername = "mra25_newUser";
-$password = "JkI=4zvo36xz";
-$dbname = "mra25_helpDesk";
+        $servername = "XXXX";
+        $susername = "XXXX";
+        $password = "XXXX";
+        $dbname = "XXXX";
 
         // $servername = "localhost";
         // $susername = "root";
         // $password = "";
         // $dbname = "helpdesk";
+        
         $id;
         $msg;
         // Create connection
@@ -26,10 +27,6 @@ $dbname = "mra25_helpDesk";
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         } 
-
-        // $notifications = ["Ticket", "Admin", "Signup"];
-
-
 
         $sql = $conn->prepare("SELECT * FROM notifications WHERE noti_to = ? ORDER BY noti_time DESC");
         $sql->bind_param("s", $username);
@@ -40,15 +37,13 @@ $dbname = "mra25_helpDesk";
 
             while($row = $result->fetch_assoc()) {
                 $notifications = $row['noti_type'];
+                
                 switch($notifications) {
                     case 'Ticket':
                         $name = $row['noti_from'];
                         $id = $row['noti_entity'];
                         $notifID = $row['notificationID'];
                         $message = $row['noti_msg'];
-
-                        // $message = preg_replace("/".str_word_count($message, 4).str_word_count($message, 5)."/i", '<b>$0</b>', $message);
-                        
 
                         echo "
                             <form method='post' action='viewTicket.php?ticketID=".$id."' class='inline'>
@@ -58,16 +53,12 @@ $dbname = "mra25_helpDesk";
                             </button>
                             </form>
                         ";
-                                    
-                    
                         break;
                     case 'Admin':
                         $name = $row['noti_from'];
                         $id = $row['noti_entity'];
                         $notifID = $row['notificationID'];
                         $message = $row['noti_msg'];
-                        // $message = preg_replace("/:/i", '<b>$0</b>', $message);
-                        
                         echo "
                             <form method='post' action='viewTicket.php?ticketID=".$id."' class='inline'>
                             <input type='hidden' name='entity_id' value='".$notifID."'>
@@ -82,8 +73,6 @@ $dbname = "mra25_helpDesk";
                         $id = $row['noti_entity'];
                         $notifID = $row['notificationID'];
                         $message = $row['noti_msg'];
-                        // $message = preg_replace("/:/i", '<b>$0</b>', $message);
-                        
                         echo "
                             <form method='post' action='viewTicket.php?ticketID=".$id."' class='inline'>
                             <input type='hidden' name='entity_id' value='".$notifID."'>
@@ -98,7 +87,6 @@ $dbname = "mra25_helpDesk";
                         $id = $row['noti_entity'];
                         $notifID = $row['notificationID'];
                         $message = $row['noti_msg'];
-                        
                         echo "
                             <form method='post' action='index.php' class='inline'>
                             <input type='hidden' name='entity_id' value='".$notifID."'>
@@ -113,7 +101,6 @@ $dbname = "mra25_helpDesk";
                         $id = $row['noti_entity'];
                         $notifID = $row['notificationID'];
                         $message = $row['noti_msg'];
-                        
                         echo "
                             <form method='post' action='index.php' class='inline'>
                             <input type='hidden' name='entity_id' value='".$notifID."'>
